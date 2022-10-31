@@ -5,8 +5,8 @@ import { GameOver } from './scenes/GameOver.js';
 let config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 640,
     input: {
         gamepad: true
     },
@@ -15,7 +15,7 @@ let config = {
         arcade: {
             debug: false,
             fps: 60,
-            gravity: { y: 0 }
+            gravity: { y: 1000 }
         }
     },
     scene: [ 
