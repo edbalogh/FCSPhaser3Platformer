@@ -15,8 +15,6 @@ export class Player extends Phaser.GameObjects.Rectangle {
     }
 
     preUpdate(time, delta) {
-        // reset double jump
-        if (this.body.onFloor()) this.jumps = 0;
 
         // left and right movement
         if (this.cursors.left.isDown) {
@@ -27,8 +25,6 @@ export class Player extends Phaser.GameObjects.Rectangle {
             this.body.setVelocityX(0);
         }
 
-        console.log({jumps: this.jumps, maxJumps: this.maxJumps})
-
         if (this.cursors.space.isDown) {
             if (this.jumps < this.maxJumps && !this.jumpPressed) {
                 this.jumpPressed = true;
@@ -37,6 +33,7 @@ export class Player extends Phaser.GameObjects.Rectangle {
             }
         } else {
             this.jumpPressed = false;
+            if (this.body.onFloor()) this.jumps = 0;
         }
     }
 }

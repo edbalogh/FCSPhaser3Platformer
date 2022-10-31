@@ -57,7 +57,5 @@ export class MainLevel extends Phaser.Scene {
     // );
 
     this.physics.add.collider(this.player, this.floor);
-    this.physics.add.collider(this.floor, this.floor);
-
   }
 }
