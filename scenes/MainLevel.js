@@ -17,17 +17,19 @@ export class MainLevel extends Phaser.Scene {
 
     // set the world boundaries for physics
     this.physics.world.bounds.width = 6400
-    this.physics.world.bounds.height = 640;
+    this.physics.world.bounds.height = 1280;
     // set bounds so the camera won't go outside the game world
-    this.cameras.main.setBounds(0, 0, 6400, 640);
+    this.cameras.main.setBounds(0, 0, 6400, 1280);
 
     // create the player
     this.player = new Player(this, 100, 50);
 
     // create the floor and some random blocks
     for (let i=0; i<100; i++){
-      this.floor.push(new Floor(this, i*64, 608));
-      if(Math.random() > 0.9) this.floor.push(new Floor(this, i*64, 544))
+      this.floor.push(new Floor(this, i*64, 1168));
+      if(Math.random() < 0.95) this.floor.push(new Floor(this, i*64, 608));
+      if(Math.random() > 0.9) this.floor.push(new Floor(this, i*64, 544));
+      if(Math.random() > 0.9) this.floor.push(new Floor(this, i*64, 1136));
     }
     
     // make the camera follow the player
